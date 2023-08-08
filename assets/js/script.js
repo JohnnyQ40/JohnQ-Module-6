@@ -1,7 +1,7 @@
 const apiKey = '710a1db617359dfe93788497ab2c25bc';
 
 
-
+//uses api key to access weather data via city
 async function getWeatherData(city) {
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${apiKey}`);
@@ -13,7 +13,7 @@ async function getWeatherData(city) {
         return null;
     }
 }
-
+//displays weather data for current day
 function displayCurrentWeather(weatherData) {
     const currentWeatherElement = document.getElementById('current-weather');
 console.log(weatherData);
@@ -35,7 +35,7 @@ const currentWeatherData = `
 
 currentWeatherElement.innerHTML = currentWeatherData;
 }
-
+//displays 5day forecast
 function displayForecast(weatherData) {
     const forecastElement = document.getElementById('forecast');
     forecastElement.innerHTML = '';
@@ -68,7 +68,7 @@ function displayForecast(weatherData) {
         forecastElement.innerHTML += forecastHTML;
 });
 }
-
+//adds searched city to history
 function addToHistory(city) {
     let searchHistory = localStorage.getItem('searchHistory');
 
@@ -91,7 +91,7 @@ function addToHistory(city) {
 
     displaySearchHistory(searchHistory);
 }
-
+//displays search history of previously selected cities
 function displaySearchHistory(searchHistory) {
     const searchHistoryElement = document.getElementById('search-history');
     searchHistoryElement.innerHTML = '';
@@ -102,7 +102,7 @@ function displaySearchHistory(searchHistory) {
         searchHistoryElement.appendChild(button);
     });
 }
-
+//adds event listener to search button
 document.getElementById('search-form').addEventListener('submit', async (event) => {
     event.preventDefault();
     const cityInput = document.getElementById('city-input');
@@ -118,7 +118,7 @@ document.getElementById('search-form').addEventListener('submit', async (event) 
         }
     }
 });
-
+//adds event listener to search history, updates when new city is submitted
 document.getElementById('search-history').addEventListener('click', async (event) => {
     if (event.target.tagName === 'BUTTON') {
         const city = event.target.textContent;
