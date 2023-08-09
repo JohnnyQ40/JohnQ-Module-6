@@ -17,7 +17,7 @@ This application tracks the weather for given city. When a city is searched its 
 No dependencies
 
 ## Usage
-By right clicking the index.html and opening in a new browser or viewing the online application found here () you can access the portfolio. 
+By right clicking the index.html and opening in a new browser or viewing the online application found here (https://johnnyq40.github.io/Weather-Dashboard-Module-6/) you can access the portfolio. 
 
 ## License
 None
